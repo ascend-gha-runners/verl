@@ -95,12 +95,12 @@ NPU 相关的工作流主要包括：
 
    jobs:
      your_job_name:  # 任务唯一标识
-       if: github.repository_owner == 'verl-project'  # 仅在主仓库运行
+       if: github.repository_owner == 'ascend-gha-runners'  # 仅在主仓库运行
        runs-on: linux-aarch64-a2-4  # 硬件规格：a2实例，4卡NPU
        timeout-minutes: 60          # 任务超时阈值（分钟）
        container:
          #运行镜像 该示例为vllm的镜像
-         image: swr.ap-southeast-1.myhuaweicloud.com/base_image/ascend-ci/verl/verl:verl-8.3.rc1-910b-ubuntu22.04-py3.11-latest
+         image: swr.cn-southwest-2.myhuaweicloud.com/modelfoundry/ascend-ci/verl/verl:verl-8.3.rc1-910b-ubuntu22.04-py3.11-latest
          options: >-
            --shm-size 16g  # 共享内存配置
        env:
